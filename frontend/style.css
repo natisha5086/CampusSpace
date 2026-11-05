@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    background-color:#f0f4f8
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: white;
+}
+
+.logo {
+    color: #5146c8;
+    font-size: 26px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.login-btn,
+.explore-btn {
+    background: #5146c8;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    color: #29245c;
+}
+
+.hero p {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    color: hwb(258 6% 69%);
+}
+
+.explore-btn {
+    font-size: 16px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #1e3a8a;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+button {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+#myBookings {
+    margin: 30px auto;
+    padding: 20px;
+}
+
+#myBookings h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.booking-card h3 {
+    color: #2563eb;
+}
+
+.booking-card button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.booking-card button:hover {
+    background: #991b1b;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    #myBookings {
+        padding: 10px;
+    }
+
+    .booking-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+}
+
+/* Login Popup Styling */
+
+#loginModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+}
+
+.login-box {
+    background: white;
+    width: 320px;
+    max-width: 85%;
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.login-box h2 {
+    text-align: center;
+}
+
+.login-box input,
+.login-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Dashboard Styling */
+
+.dashboard {
+    background: white;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.dashboard h2 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.dashboard p {
+    margin: 12px 0;
+    color: #444;
+}
+
+.dashboard button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.dashboard button:hover {
+    background: #1e40af;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusSpace | Student Community</title>
+
+    <link rel="stylesheet" href="frontend/style.css">
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <h2 class="logo">CampusSpace</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#rooms">Find Rooms</a></li>
+            <li><a href="#bookings">My Bookings</a></li>
+            <li><a href="#notices">Announcements</a></li>
+        </ul>
+
+        <button class="login-btn" onclick="openLogin()">
+            Login</button>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>Smart Campus. Smarter Scheduling.</h1>
+
+        <p>
+            Find classrooms, manage bookings and stay updated
+            with everything happening on campus.
+        </p>
+    </section>
+
+    <section class="room-search" id="rooms">
+
+        <h2>Find Available Classrooms</h2>
+
+        <form id="searchForm">
+
+           
+
+            <label>Building</label>
+            <select id="building">
+                <option value="IET">IET</option>
+                <option value="Deeksha Bhawan">Deeksha Bhawan</option>
+            </select>
+
+            <label>Date</label>
+            <input type="date" id="date" required>
+
+            <label>Start Time</label>
+            <input type="time" id="startTime" required>
+
+            <label>Duration (Hours)</label>
+            <input type="number" id="duration" min="1" value="1">
+
+            <label>Required Seats</label>
+            <input type="number" id="capacity" min="1" placeholder="Enter seats">
+
+            <button type="submit">Search Rooms</button>
+
+        </form>
+
+        <div id="roomResults"></div>
+        <section id="myBookings">
+    <h2>My Bookings</h2>
+    <div id="bookingList">
+        No bookings yet.
+    </div>
+</section>
+
+    </section>
+
+    <section id="bookings">
+        <h2>My Bookings</h2>
+        <p>Your classroom reservations will appear here.</p>
+    </section>
+
+    <section id="notices">
+        <h2>Campus Announcements</h2>
+        <p>Stay updated with important academic notices.</p>
+    </section>
+
+</main>
+
+<script src="frontend/script.js"></script>
+
+<!-- Login Popup -->
+<div id="loginModal" style="display:none;">
+
+    <div class="login-box">
+
+        <h2>CampusSpace Login</h2>
+
+        <label>Select Your Role</label>
+
+        <select id="loginRole" required>
+            <option value="">Choose Role</option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+            <option value="admin">Administrator</option>
+        </select>
+
+        <br><br>
+
+        <label>Email</label>
+        <input type="email" id="loginEmail"
+               placeholder="Enter your email">
+
+        <br><br>
+
+        <button onclick="loginUser()">Login</button>
+
+        <button onclick="closeLogin()">Close</button>
+
+    </div>
+</div>
+
+<!-- Student Dashboard -->
+<section id="studentDashboard" class="dashboard" style="display:none;">
+    <h2>Student Dashboard 🎓</h2>
+    <p>Welcome, Student!</p>
+    <p id="studentUserInfo"></p>
+
+    <button onclick="showRooms()">Find Available Rooms</button>
+    <button onclick="showBookings()">My Bookings</button>
+    <button onclick="logoutUser()">Logout</button>
+</section>
+
+<!-- Faculty Dashboard -->
+<section id="facultyDashboard" class="dashboard" style="display:none;">
+    <h2>Faculty Dashboard 👩‍🏫</h2>
+    <p>Welcome, Faculty Member!</p>
+    <p id="facultyUserInfo"></p>
+
+    <button onclick="showRooms()">Find Classrooms</button>
+    <button onclick="showBookings()">My Bookings</button>
+    <button onclick="logoutUser()">Logout</button>
+</section>
+
+<section id="adminDashboard" class="dashboard" style="display:none;">
+    <h2>Administrator Dashboard 🛠️</h2>
+    <p>Welcome, Administrator!</p>
+    <p id="adminUserInfo"></p>
+
+    <button onclick="showRooms()">Manage Rooms</button>
+    <button onclick="showBookings()">Manage Bookings</button>
+    <button onclick="logoutUser()">Logout</button>
+</section>
+</body>
+</html>
+
