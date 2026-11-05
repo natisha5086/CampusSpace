@@ -286,25 +286,21 @@ function closeLogin() {
 
 // Login User
 function loginUser() {
-    const currentUser = JSON.parse(localStorage.getItem("campusUser"));
 
-if (!currentUser) {
-    alert("Please login before searching for rooms!");
-    openLogin();
-    return;
-}
-
-const role = currentUser.role;
-    
+    const role = document.getElementById("loginRole").value;
     const email = document.getElementById("loginEmail").value.trim();
 
-    
+    if (!role || !email) {
+        alert("Please select your role and enter your email!");
+        return;
+    }
 
     const user = {
         role: role,
         email: email
     };
 
+    // Save login information
     localStorage.setItem("campusUser", JSON.stringify(user));
 
     // Hide all dashboards
@@ -312,7 +308,7 @@ const role = currentUser.role;
     document.getElementById("facultyDashboard").style.display = "none";
     document.getElementById("adminDashboard").style.display = "none";
 
-    // Display the correct dashboard
+    // Display correct dashboard
     document.getElementById(role + "Dashboard").style.display = "block";
 
     // Display user information
@@ -321,13 +317,8 @@ const role = currentUser.role;
 
     closeLogin();
 
-    // Scroll to dashboard
-    document.getElementById(role + "Dashboard").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
     alert("Welcome to CampusSpace!");
+
 }
 
 // Logout function
