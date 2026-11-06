@@ -351,3 +351,34 @@ function showBookings() {
         behavior: "smooth"
     });
 }
+
+// Restore Login Session After Refresh
+function restoreLoginSession() {
+    const currentUser = JSON.parse(
+        localStorage.getItem("campusUser") || "null"
+    );
+
+    if (!currentUser) return;
+
+    document.getElementById("studentDashboard").style.display = "none";
+    document.getElementById("facultyDashboard").style.display = "none";
+    document.getElementById("adminDashboard").style.display = "none";
+
+    const dashboard = document.getElementById(
+        currentUser.role + "Dashboard"
+    );
+
+    const userInfo = document.getElementById(
+        currentUser.role + "UserInfo"
+    );
+
+    if (dashboard) dashboard.style.display = "block";
+
+    if (userInfo) {
+        userInfo.innerText = "Logged in as: " + currentUser.email;
+    }
+
+    displayMyBookings();
+}
+
+window.addEventListener("DOMContentLoaded", restoreLoginSession);
