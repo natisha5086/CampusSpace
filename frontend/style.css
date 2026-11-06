@@ -423,3 +423,502 @@ button:hover {
     bottom: 15px;
   }
 }
+
+/* =====================================
+   CAMPUSSPACE - MODERN UI UPGRADE
+   ===================================== */
+
+:root {
+  --primary: #5146c8;
+  --primary-dark: #3730a3;
+  --accent: #818cf8;
+  --background: #f5f6fc;
+  --surface: #ffffff;
+  --text: #172554;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 10px 30px rgba(31, 41, 85, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 15px 6%;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 3px 18px rgba(0,0,0,0.06);
+  border-radius: 0;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  list-style: none;
+}
+
+.navbar ul li a {
+  color: #475569;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar ul li a:hover {
+  color: var(--primary);
+}
+
+.login-btn,
+.explore-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 90px 20px 100px;
+  color: white;
+  background: linear-gradient(125deg, #1e1b4b, #4338ca, #7c3aed);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 280px;
+  height: 280px;
+  top: -100px;
+  left: -70px;
+}
+
+.hero::after {
+  width: 350px;
+  height: 350px;
+  bottom: -220px;
+  right: -80px;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
+  color: white;
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 22px auto 0;
+  color: #e0e7ff;
+  font-size: 17px;
+}
+
+/* ROOM SEARCH */
+
+.room-search {
+  max-width: 950px;
+  margin: -35px auto 45px;
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.room-search h2,
+#myBookings h2,
+#bookings h2,
+#notices h2 {
+  color: var(--text);
+  font-size: 25px;
+  margin: 0 0 22px;
+  font-weight: 800;
+}
+
+#searchForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+}
+
+#searchForm label {
+  align-self: end;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+#searchForm input,
+#searchForm select {
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+}
+
+#searchForm input:focus,
+#searchForm select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(81,70,200,0.12);
+}
+
+#searchForm button {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding: 15px;
+  background: linear-gradient(110deg, var(--primary), #7c3aed);
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* GENERAL CARDS */
+
+.card,
+.booking-card,
+.dashboard {
+  background: var(--surface);
+  border: 1px solid #edf0f7;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 25px;
+  margin: 18px 0;
+}
+
+.booking-card {
+  padding: 22px;
+  margin: 16px 0;
+}
+
+.booking-card h3 {
+  color: var(--primary);
+}
+
+#roomResults {
+  margin-top: 25px;
+}
+
+#myBookings {
+  margin: 35px 0 10px;
+  padding: 25px;
+  background: #f8faff;
+  border-radius: 15px;
+}
+
+#myBookings h2 {
+  text-align: left;
+}
+
+/* DASHBOARDS */
+
+.dashboard {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 35px;
+  text-align: center;
+}
+
+.dashboard h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.dashboard p {
+  color: var(--muted);
+}
+
+/* OTHER SECTIONS */
+
+#bookings,
+#notices {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+#bookings p,
+#notices p {
+  color: var(--muted);
+}
+
+/* BUTTONS */
+
+button {
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(129,140,248,0.55);
+  outline-offset: 2px;
+}
+
+/* LOGIN MODAL */
+
+#loginModal {
+  padding: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 390px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.login-box h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+
+/* CHATBOT MOBILE FIX */
+
+.cs-chat-launcher-wrap {
+  right: 18px;
+  bottom: 18px;
+}
+
+.cs-chat-launcher {
+  width: 58px;
+  height: 58px;
+}
+
+.cs-chat-panel {
+  border: 1px solid var(--border);
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 13px 4%;
+    justify-content: center;
+  }
+
+  .navbar ul {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .navbar ul li a {
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 70px 18px 85px;
+  }
+
+  .room-search {
+    margin: -25px 14px 30px;
+    padding: 25px 18px;
+  }
+
+  #bookings,
+  #notices,
+  .dashboard {
+    margin: 20px 14px;
+    padding: 22px 16px;
+  }
+
+  #myBookings {
+    padding: 18px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar {
+    gap: 8px;
+    padding: 12px 10px;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .navbar ul {
+    width: 100%;
+    gap: 8px 15px;
+    justify-content: center;
+  }
+
+  .navbar ul li a {
+    font-size: 12px;
+  }
+
+  .login-btn {
+    padding: 9px 18px;
+  }
+
+  .hero {
+    padding: 55px 16px 70px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .room-search {
+    margin: -20px 10px 25px;
+    padding: 22px 15px;
+    border-radius: 15px;
+  }
+
+  .room-search h2 {
+    font-size: 21px;
+  }
+
+  #searchForm {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  #searchForm label {
+    margin-top: 8px;
+  }
+
+  #searchForm input,
+  #searchForm select {
+    font-size: 16px;
+    padding: 13px;
+  }
+
+  #searchForm button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .booking-card {
+    padding: 16px;
+  }
+
+  #myBookings {
+    padding: 15px;
+  }
+
+  #bookings,
+  #notices,
+  .dashboard {
+    margin: 15px 10px;
+    padding: 20px 15px;
+  }
+
+  .dashboard button {
+    width: 100%;
+    margin: 7px 0;
+  }
+
+  .cs-chat-hint {
+    display: none;
+  }
+
+  .cs-chat-panel {
+    right: 10px;
+    bottom: 85px;
+    width: calc(100vw - 20px);
+    height: min(70dvh, 520px);
+    max-height: calc(100dvh - 105px);
+  }
+}
