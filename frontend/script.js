@@ -381,4 +381,4 @@ function restoreLoginSession() {
     displayMyBookings();
 }
 
-window.addEventListener("DOMContentLoaded", restoreLoginSession);
+restoreLoginSession();
