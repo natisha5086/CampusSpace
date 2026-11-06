@@ -262,27 +262,6 @@ function cancelBooking(index) {
 
 displayMyBookings();
 
-// Display Student Bookings
-function displayMyBookings() {
-    const bookingList = document.getElementById("bookingList");
-
-    let bookings = JSON.parse(localStorage.getItem("campusBookings")) || [];
-
-    if (bookings.length === 0) {
-        bookingList.innerHTML = "No bookings yet.";
-        return;
-    }
-
-    bookingList.innerHTML = bookings.map((booking, index) => `
-        <div class="booking-card">
-            <h3>${booking.room || booking.roomId || booking.id || "Room"}</h3>
-            <p>Building: ${booking.building || "N/A"}</p>
-            <p>Date: ${booking.date || "N/A"}</p>
-            <p>Start Time: ${booking.startTime || "N/A"}</p>
-            <button onclick="cancelBooking(${index})">Cancel Booking</button>
-        </div>
-    `).join("");
-}
 
 // Cancel Booking
 function cancelBooking(index) {
