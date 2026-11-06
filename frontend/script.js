@@ -156,11 +156,16 @@ if (conflict) {
     return;
 }
 
+const currentUser = JSON.parse(
+    localStorage.getItem("campusUser") || "null"
+);
+
 bookings.push({
     roomId,
     date,
     start,
-    end
+    end,
+    email: currentUser ? currentUser.email : ""
 });
 
 localStorage.setItem("campusBookings", JSON.stringify(bookings));
@@ -203,23 +208,37 @@ userRole.addEventListener("change", function () {
 // Display My Bookings
 function displayMyBookings() {
     const section = document.getElementById("bookings");
-    const bookings = JSON.parse(
+
+    if (!section) return;
+
+    const currentUser = JSON.parse(
+        localStorage.getItem("campusUser") || "null"
+    );
+
+    const allBookings = JSON.parse(
         localStorage.getItem("campusBookings") || "[]"
     );
 
-    if (!section) return;
+    if (!currentUser) {
+        section.innerHTML = "<p>Please login to view your bookings.</p>";
+        return;
+    }
+
+    const userBookings = allBookings
+        .map((booking, index) => ({ ...booking, originalIndex: index }))
+        .filter(booking => booking.email === currentUser.email);
 
     section.innerHTML = `
         <h2>My Bookings</h2>
         ${
-            bookings.length === 0
+            userBookings.length === 0
             ? "<p>No bookings found.</p>"
-            : bookings.map((booking, index) => `
+            : userBookings.map(booking => `
                 <div class="room-card">
                     <h3>${booking.roomId || booking.id || "Booked Room"}</h3>
                     <p>Date: ${booking.date || "N/A"}</p>
                     <p>Start: ${booking.startTime || booking.start || "N/A"}</p>
-                    <button onclick="cancelBooking(${index})">
+                    <button onclick="cancelBooking(${booking.originalIndex})">
                         Cancel Booking
                     </button>
                 </div>
