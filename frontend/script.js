@@ -175,8 +175,12 @@ roomResults.innerHTML = `
         <p>Room: ${roomId}</p>
         <p>Date: ${date}</p>
         <p>Your demo booking has been saved.</p>
+        
     </div>
 `;
+setTimeout(() => {
+    roomResults.innerHTML = "";
+}, 3000);
 
 }
 
