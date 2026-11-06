@@ -1,24 +1,24 @@
 name: CampusSpace CI
 
 on:
-push:
-branches: [main]
-pull_request:
-branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-test:
-runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-steps:
-    - name: Checkout Repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Verify Project Files
-    run: |
-      test -f index.html
-      test -d frontend
-      test -f frontend/script.js
-      test -f frontend/style.css
-      node --check frontend/script.js
-      echo "CampusSpace project files verified successfully!"
+      - name: Verify Project Files
+        run: |
+          test -f index.html
+          test -d frontend
+          test -f frontend/script.js
+          test -f frontend/style.css
+          node --check frontend/script.js
+          echo "CampusSpace project files verified successfully!"
