@@ -382,3 +382,37 @@ function restoreLoginSession() {
 }
 
 restoreLoginSession();
+
+// Restore logged-in user after page refresh
+document.addEventListener("DOMContentLoaded", function () {
+
+const currentUser = JSON.parse(
+    localStorage.getItem("campusUser")
+);
+
+// Hide all dashboards initially
+document.getElementById("studentDashboard").style.display = "none";
+document.getElementById("facultyDashboard").style.display = "none";
+document.getElementById("adminDashboard").style.display = "none";
+
+if (currentUser && currentUser.role && currentUser.email) {
+
+    const dashboard = document.getElementById(
+        currentUser.role + "Dashboard"
+    );
+
+    const userInfo = document.getElementById(
+        currentUser.role + "UserInfo"
+    );
+
+    if (dashboard && userInfo) {
+        dashboard.style.display = "block";
+
+        userInfo.innerText =
+            "Logged in as: " + currentUser.email;
+
+        document.getElementById("loginModal").style.display = "none";
+    }
+}
+
+});
