@@ -153,6 +153,59 @@
     <button onclick="showBookings()">Manage Bookings</button>
     <button onclick="logoutUser()">Logout</button>
 </section>
+<!-- CampusSpace Chatbot -->
+<div class="cs-chat-launcher-wrap">
+  <button id="csChatLauncher" class="cs-chat-launcher"
+    type="button" aria-label="Open CampusSpace Assistant"
+    aria-expanded="false">✦</button>
+  <span class="cs-chat-hint">Ask CampusSpace</span>
+</div>
+
+<section id="csChatPanel" class="cs-chat-panel"
+  aria-label="CampusSpace Assistant" hidden>
+
+  <header class="cs-chat-header">
+    <div>
+      <strong>✦ CampusSpace Assistant</strong>
+      <small>Room booking & campus help</small>
+    </div>
+    <button id="csChatClose" type="button"
+      aria-label="Close chat">×</button>
+  </header>
+
+  <div id="csChatMessages" class="cs-chat-messages"
+    aria-live="polite">
+    <div class="cs-chat-message bot">
+      Hi! Welcome to CampusSpace. Ask me about finding rooms,
+      bookings, cancellations, or your dashboard.
+    </div>
+
+    <div class="cs-chat-quick">
+      <button type="button" data-chat-question="How do I book a room?">
+        How to book?
+      </button>
+      <button type="button" data-chat-question="How do I check availability?">
+        Check availability
+      </button>
+      <button type="button" data-chat-question="How do I cancel a booking?">
+        Cancel booking
+      </button>
+    </div>
+  </div>
+
+  <form id="csChatForm" class="cs-chat-form">
+    <input id="csChatInput" type="text"
+      placeholder="Ask your question..." maxlength="500"
+      autocomplete="off" required>
+    <button type="submit">Send</button>
+  </form>
+
+  <div class="cs-chat-disclaimer">
+    Demo assistant · CampusSpace
+  </div>
+</section>
+
+<script src="frontend/chatbot.js"></script>
 </body>
 </html>
 

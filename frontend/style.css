@@ -243,3 +243,183 @@ button:hover {
 .dashboard button:hover {
     background: #1e40af;
 }
+
+/* ===== CampusSpace Chatbot ===== */
+
+.cs-chat-launcher-wrap {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-chat-launcher {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cs-chat-hint {
+  background: #172554;
+  color: white;
+  padding: 9px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.cs-chat-panel {
+  position: fixed;
+  right: 25px;
+  bottom: 100px;
+  width: 350px;
+  max-width: calc(100vw - 30px);
+  height: 470px;
+  max-height: calc(100vh - 130px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.cs-chat-panel[hidden] {
+  display: none !important;
+}
+
+.cs-chat-header {
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cs-chat-header strong,
+.cs-chat-header small {
+  display: block;
+}
+
+.cs-chat-header small {
+  margin-top: 5px;
+  opacity: 0.85;
+}
+
+.cs-chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.cs-chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.cs-chat-message {
+  padding: 11px 13px;
+  border-radius: 13px;
+  margin-bottom: 12px;
+  max-width: 88%;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cs-chat-message.bot {
+  background: #e2e8f0;
+  color: #172554;
+  border-bottom-left-radius: 3px;
+}
+
+.cs-chat-message.user {
+  background: #2563eb;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 3px;
+}
+
+.cs-chat-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.cs-chat-quick button {
+  border: 1px solid #2563eb;
+  color: #1d4ed8;
+  background: white;
+  border-radius: 18px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cs-chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cs-chat-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  outline: none;
+}
+
+.cs-chat-form input:focus {
+  border-color: #2563eb;
+}
+
+.cs-chat-form button {
+  border: none;
+  border-radius: 20px;
+  padding: 0 16px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.cs-chat-disclaimer {
+  text-align: center;
+  color: #64748b;
+  font-size: 10px;
+  padding: 7px;
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .cs-chat-panel {
+    right: 10px;
+    bottom: 85px;
+    width: calc(100vw - 20px);
+    height: 65vh;
+  }
+
+  .cs-chat-launcher-wrap {
+    right: 15px;
+    bottom: 15px;
+  }
+}
